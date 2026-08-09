@@ -1,5 +1,6 @@
 export type Experience = {
-  company: string
-  role: string
-  period: string
-}
+  role: string;
+  company: string;
+  period: string;
+  points: string[];
+};

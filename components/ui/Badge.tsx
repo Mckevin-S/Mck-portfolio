@@ -1,5 +1,9 @@
-import React from "react"
+import React from "react";
 
 export default function Badge({ children }: { children: React.ReactNode }) {
-  return <span style={{ padding: "0.2rem 0.5rem", borderRadius: 6, background: "#eee" }}>{children}</span>
+  return (
+    <span className="inline-flex items-center rounded-full border border-line bg-surface-raised px-3.5 py-1.5 font-mono text-xs font-medium tracking-wide text-text/90">
+      {children}
+    </span>
+  );
 }

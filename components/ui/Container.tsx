@@ -1,5 +1,15 @@
-import React from "react"
+import React from "react";
 
-export default function Container({ children }: { children: React.ReactNode }) {
-  return <div style={{ maxWidth: 1000, margin: "0 auto", padding: "0 1rem" }}>{children}</div>
+export default function Container({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`mx-auto w-full max-w-[1200px] px-4 md:px-6 ${className}`}>
+      {children}
+    </div>
+  );
 }
