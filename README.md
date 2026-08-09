@@ -1,6 +1,6 @@
 # Portfolio
 
-Ce dépôt contient un starter Next.js et j'ai complété l'arborescence du portfolio avec des composants et pages de base.
+arborescence du portfolio 
 
 Architecture ajoutée automatiquement:
 
@@ -43,14 +43,6 @@ portfolio/
 │   └── utils.ts
 ├── app/api/contact/route.ts
 
-Fichiers créés automatiquement: composants de base, pages, données d'exemple, types et hooks.
-
-Prochaines étapes proposées:
-
-- Personnaliser le contenu et le style dans `components/`.
-- Ajouter vos projets réels dans `data/projects.ts` et images dans `public/images/`.
-- Compléter `app/layout.tsx` ou `globals.css` pour le thème visuel.
-- Tester l'API contact et connecter un service d'envoi d'e-mails si nécessaire.
 
 Commandes utiles:
 
@@ -59,7 +51,5 @@ npm install
 npm run dev
 ```
 
-J'ai ajouté `.env.example` et des placeholders dans `public/`.
 
-Souhaitez-vous que je fasse un commit Git avec ces changements maintenant ?
 
