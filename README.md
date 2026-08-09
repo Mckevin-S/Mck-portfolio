@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+Ce dépôt contient un starter Next.js et j'ai complété l'arborescence du portfolio avec des composants et pages de base.
 
-First, run the development server:
+Architecture ajoutée automatiquement:
+
+portfolio/
+├── app/
+│   ├── about/page.tsx
+│   ├── contact/page.tsx
+│   ├── experience/page.tsx
+│   ├── projects/page.tsx
+│   ├── projects/[slug]/page.tsx
+│   ├── layout.tsx
+│   └── globals.css
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.tsx
+│   │   ├── Footer.tsx
+│   │   └── MobileMenu.tsx
+│   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Skills.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Experience.tsx
+│   │   └── Contact.tsx
+│   └── projects/
+│       ├── ProjectCard.tsx
+│       └── ProjectGrid.tsx
+├── data/
+│   ├── projects.ts
+│   ├── skills.ts
+│   └── experience.ts
+├── types/
+│   ├── project.ts
+│   ├── skill.ts
+│   └── experience.ts
+├── hooks/
+│   ├── useScroll.ts
+│   └── useMediaQuery.ts
+├── lib/
+│   └── utils.ts
+├── app/api/contact/route.ts
+
+Fichiers créés automatiquement: composants de base, pages, données d'exemple, types et hooks.
+
+Prochaines étapes proposées:
+
+- Personnaliser le contenu et le style dans `components/`.
+- Ajouter vos projets réels dans `data/projects.ts` et images dans `public/images/`.
+- Compléter `app/layout.tsx` ou `globals.css` pour le thème visuel.
+- Tester l'API contact et connecter un service d'envoi d'e-mails si nécessaire.
+
+Commandes utiles:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+J'ai ajouté `.env.example` et des placeholders dans `public/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Souhaitez-vous que je fasse un commit Git avec ces changements maintenant ?
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
