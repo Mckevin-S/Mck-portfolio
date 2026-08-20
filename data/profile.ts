@@ -5,13 +5,13 @@ export const profile: Record<Lang, Profile> = {
   fr: {
     name: "Mckevin Kamguem",
     firstName: "Mckevin",
-    role: "Concepteur développeur logiciel",
+    role: "Ingénieur logiciel",
     intro:
-      "Je conçois et développe des applications web performantes, accessibles et évolutives — de l'interface jusqu'aux données.",
-    bio: "Développeur passionné par la conception de produits web soignés et robustes. Je transforme des problèmes complexes en solutions simples et élégantes, en veillant à chaque détail : performances, accessibilité, expérience utilisateur. Mon approche mêle exigence technique et sens du produit, avec une stack moderne centrée sur React, Next.js, Node.js et PostgreSQL.",
+      "Je conçois, développe et fais évoluer des solutions logicielles robustes, performantes et maintenables. De l’analyse des besoins à la conception de l’architecture, du développement au déploiement, je transforme des problématiques complexes en applications fiables, sécurisées et évolutives",
+    bio: "Développeur passionné par la conception de produits web soignés et robustes. Je transforme des problèmes complexes en solutions simples et élégantes, en veillant à chaque détail : performances, accessibilité, expérience utilisateur. Mon approche mêle exigence technique et sens du produit, avec une stack moderne.",
     location: "France",
     availability: "Disponible pour de nouvelles opportunités",
-    email: "bonjour@mckevin.dev",
+    email: "kamguemmckevin@gmail.com",
     stats: [
       { label: "Années d'expérience", value: "3+" },
       { label: "Projets livrés", value: "12+" },
@@ -22,13 +22,13 @@ export const profile: Record<Lang, Profile> = {
   en: {
     name: "Mckevin Kamguem",
     firstName: "Mckevin",
-    role: "Software Designer & Developer",
+    role: "Software Engineer",
     intro:
-      "I design and build performant, accessible and scalable web applications — from the interface down to the data.",
+      "I design and build performant, accessible and scalable web applications - from the interface down to the data.",
     bio: "Developer passionate about crafting polished, robust web products. I turn complex problems into simple, elegant solutions, caring about every detail: performance, accessibility, user experience. My approach blends technical rigor with product sense, using a modern stack centered on React, Next.js, Node.js and PostgreSQL.",
     location: "France",
     availability: "Available for new opportunities",
-    email: "bonjour@mckevin.dev",
+    email: "kamguemmckevin@gmail.com",
     stats: [
       { label: "Years of experience", value: "3+" },
       { label: "Projects shipped", value: "12+" },

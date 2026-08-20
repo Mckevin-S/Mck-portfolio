@@ -12,7 +12,7 @@ export default function Footer({ lang }: { lang: Lang }) {
     <footer className="relative z-10 border-t border-line py-10">
       <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-5 px-4 md:flex-row md:justify-between md:px-6">
         <p className="font-mono text-xs text-muted">
-          © {new Date().getFullYear()} {profile[lang].name} —{" "}
+          © {new Date().getFullYear()} {profile[lang].name} -{" "}
           {dict.footer.builtWith}{" "}
           <span className="text-primary">Next.js</span>
         </p>

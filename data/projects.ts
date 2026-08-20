@@ -30,7 +30,7 @@ export const projects: Record<Lang, Project[]> = {
     {
       slug: "kinetic-portfolio",
       title: "Kinetic Portfolio",
-      subtitle: "Ce site — design system sur mesure",
+      subtitle: "Ce site - design system sur mesure",
       description:
         "Portfolio one-page construit sur un design system maison « Kinetic Syntax » : thème Tailwind custom, glassmorphisme, typographies Geist / Inter / JetBrains Mono et interactions soignées.",
       stack: ["Next.js", "TypeScript", "Tailwind CSS", "Figma"],
@@ -68,7 +68,7 @@ export const projects: Record<Lang, Project[]> = {
     {
       slug: "kinetic-portfolio",
       title: "Kinetic Portfolio",
-      subtitle: "This site — bespoke design system",
+      subtitle: "This site - bespoke design system",
       description:
         "One-page portfolio built on a custom 'Kinetic Syntax' design system: custom Tailwind theme, glassmorphism, Geist / Inter / JetBrains Mono typography and polished interactions.",
       stack: ["Next.js", "TypeScript", "Tailwind CSS", "Figma"],

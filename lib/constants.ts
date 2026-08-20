@@ -1,4 +1,4 @@
-export const SITE_TITLE = "Mckevin Kamguem — Concepteur développeur logiciel";
+export const SITE_TITLE = "Mckevin Kamguem - Ingénieur logiciel";
 export const SITE_DESCRIPTION =
   "Portfolio de Mckevin Kamguem. Applications web performantes et évolutives : React, Next.js, Node.js, TypeScript, PostgreSQL.";
 export const SITE_AUTHOR = "Mckevin Kamguem";

@@ -6,34 +6,54 @@ export const skillGroups: Record<Lang, SkillGroup[]> = {
     {
       label: "Frontend",
       symbol: "◉",
-      skills: ["TypeScript", "React", "Next.js", "Tailwind CSS", "HTML/CSS"],
+      skills: ["React.js", "Angular", "HTML/CSS", "Next.js"],
     },
     {
       label: "Backend",
       symbol: "◇",
-      skills: ["Node.js", "PostgreSQL", "REST APIs", "Prisma"],
+      skills: ["Spring Boot", "Node.js", "Laravel", "Python"],
     },
     {
-      label: "Outils & workflow",
+      label: "Mobile",
+      symbol: "▣",
+      skills: ["React Native", "Flutter"],
+    },
+    {
+      label: "Outils",
       symbol: "◆",
-      skills: ["Git", "Docker", "Vercel", "Figma", "Vitest"],
+      skills: ["Docker", "Git", "Figma", "AWS", "Vercel"],
+    },
+    {
+      label: "Données",
+      symbol: "✧",
+      skills: ["MySQL", "PostgreSQL", "MongoDB", "Prisma"],
     },
   ],
   en: [
     {
       label: "Frontend",
       symbol: "◉",
-      skills: ["TypeScript", "React", "Next.js", "Tailwind CSS", "HTML/CSS"],
+      skills: ["React.js", "Angular", "HTML/CSS", "Next.js"],
     },
     {
       label: "Backend",
       symbol: "◇",
-      skills: ["Node.js", "PostgreSQL", "REST APIs", "Prisma"],
+      skills: ["Spring Boot", "Node.js", "Laravel", "Python"],
     },
     {
-      label: "Tools & workflow",
+      label: "Mobile",
+      symbol: "▣",
+      skills: ["React Native", "Flutter"],
+    },
+    {
+      label: "Tools",
       symbol: "◆",
-      skills: ["Git", "Docker", "Vercel", "Figma", "Vitest"],
+      skills: ["Docker", "Git", "Figma", "AWS", "Vercel"],
+    },
+    {
+      label: "Data",
+      symbol: "✧",
+      skills: ["MySQL", "PostgreSQL", "MongoDB", "Prisma"],
     },
   ],
 };

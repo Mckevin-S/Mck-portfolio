@@ -27,9 +27,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mckevin Kamguem — Concepteur développeur logiciel",
+  title: "Mckevin Kamguem - Ingénieur logiciel",
   description:
-    "Portfolio de Mckevin Kamguem, concepteur développeur logiciel. Applications web performantes et évolutives : React, Next.js, Node.js, TypeScript, PostgreSQL.",
+    "Portfolio de Mckevin Kamguem, Ingénieur logiciel. Applications web performantes et évolutives : React, Next.js, Node.js, TypeScript, PostgreSQL.",
   keywords: [
     "développeur",
     "développeur full-stack",
@@ -40,8 +40,11 @@ export const metadata: Metadata = {
     "portfolio",
   ],
   authors: [{ name: "Mckevin Kamguem" }],
+  icons: {
+    icon: "/images/logo.svg",
+  },
   openGraph: {
-    title: "Mckevin Kamguem — Concepteur développeur logiciel",
+    title: "Mckevin Kamguem - Ingénieur logiciel",
     description:
       "Applications web performantes et évolutives : React, Next.js, Node.js, TypeScript, PostgreSQL.",
     type: "website",

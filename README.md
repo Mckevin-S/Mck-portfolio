@@ -1,4 +1,4 @@
-# Portfolio — Mckevin Kamguem
+# Portfolio - Mckevin Kamguem
 
 Portfolio one-page construit avec **Next.js 16**, **React 19** et **Tailwind CSS v4**, sur un design system maison « Kinetic Syntax » (dark mode, glassmorphisme, accents cyan/émeraude). **Bilingue FR/EN** (cookie `lang`, switch dans la navbar), fond animé réactif (souris + scroll), salutation bonjour/bonsoir selon l'heure, téléchargement du CV et icônes réseaux.
 
@@ -42,17 +42,17 @@ types/                    # types TypeScript associés
 
 Tout le contenu est centralisé dans `data/` (chaque fichier exporte `fr` et `en`) :
 
-- `profile.ts` — nom, rôle, bio, email, stats
-- `skills.ts` — compétences par groupe
-- `projects.ts` — projets (stack, liens démo/source)
-- `experience.ts` — parcours professionnel
-- `social.ts` — liens GitHub / LinkedIn / email
+- `profile.ts` - nom, rôle, bio, email, stats
+- `skills.ts` - compétences par groupe
+- `projects.ts` - projets (stack, liens démo/source)
+- `experience.ts` - parcours professionnel
+- `social.ts` - liens GitHub / LinkedIn / email
 
 Autres à personnaliser :
 
-- `public/cv/cv.pdf` — ton CV (bouton « Télécharger mon CV »)
-- `public/mckfolio.png` — ta photo (avatar du Hero)
-- `lib/dictionary.ts` — tous les libellés d'interface FR/EN
-- `app/api/contact/route.ts` — connecter ton service d'envoi d'emails (Resend, SendGrid, etc.)
+- `public/cv/cv.pdf` - ton CV (bouton « Télécharger mon CV »)
+- `public/mckfolio.png` - ta photo (avatar du Hero)
+- `lib/dictionary.ts` - tous les libellés d'interface FR/EN
+- `app/api/contact/route.ts` - connecter ton service d'envoi d'emails (Resend, SendGrid, etc.)
 
 > Le formulaire de contact appelle `/api/contact`.

@@ -4,42 +4,82 @@ import type { Experience } from "../types/experience";
 export const experience: Record<Lang, Experience[]> = {
   fr: [
     {
-      role: "Concepteur développeur logiciel",
-      company: "Entreprise de démonstration",
-      period: "2023 — Aujourd'hui",
+      role: "Développeur Mobile (full-remote)",
+      company: "Freelance",
+      period: "Avril 2026 - Juin 2026",
       points: [
-        "Conception et développement d'applications web full-stack en React, Next.js et Node.js.",
-        "Architecture de bases de données PostgreSQL et optimisation des requêtes critiques.",
-        "Mise en place de tests automatisés, revue de code et CI/CD.",
+        "Développement des interfaces responsives en intégrant des maquettes Figma.",
+        "Collaboration avec designers et chefs de projet sur des livraisons itératives.",
+        "Technologies: ReactNative, NestJS, Prisma ORM, MogoDB",
       ],
     },
     {
-      role: "Développeur web junior",
-      company: "Agence de démonstration",
-      period: "2021 — 2023",
+      role: "Developpeur full-stack (stage)",
+      company: "Intek Cameroon",
+      period: "Juin 2025 - Août 2025",
       points: [
-        "Développement de sites et interfaces responsives en intégrant des maquettes Figma.",
+        "Conception, développementet deploiment sur serveur d'une applications web full-stack de gestion des ventes d'equipement",
+        "Mise en place de tests automatisés, revue de code et CI/CD.",
+        "Technologies: Laravel, blade, bootstrap, MySQL, GitHub Actions",
+      ],
+    },
+    {
+      role: "Développeur full-stack (stage)",
+      company: "Uni2Grow cameroun",
+      period: "juillet 2023 - Septembre 2023",
+      points: [
+        "Développement d'une application web de gestion conges et contract de l'entreprise",
+        "Collaboration avec une equipes de developpeur.",
+        "Technologies: php, bootstrap, MySQL, Git",
+      ],
+    },
+    {
+      role: "Développeur (stage)",
+      company: "Uni2Grow cameroun",
+      period: "juillet 2022 - Septembre 2022",
+      points: [
+        "Développement d'interfaces responsives.",
         "Collaboration avec designers et chefs de projet sur des livraisons itératives.",
       ],
     },
   ],
   en: [
     {
-      role: "Software Designer & Developer",
-      company: "Demo company",
-      period: "2023 — Present",
+      role: "Mobile Developer (full-remote)",
+      company: "Freelance",
+      period: "April 2026 - June 2026",
       points: [
-        "Design and development of full-stack web applications with React, Next.js and Node.js.",
-        "Database architecture with PostgreSQL and optimization of critical queries.",
-        "Setting up automated tests, code review and CI/CD.",
+        "Development of responsive interfaces integrating Figma mockups.",
+        "Collaboration with designers and project managers on iterative deliveries.",
+        "Technologies: React Native, NestJS, Prisma ORM, MongoDB",
       ],
     },
     {
-      role: "Junior Web Developer",
-      company: "Demo agency",
-      period: "2021 — 2023",
+      role: "Full-stack Developer (internship)",
+      company: "Intek Cameroon",
+      period: "June 2025 - August 2025",
       points: [
-        "Development of responsive websites and interfaces from Figma mockups.",
+        "Design, development and server deployment of a full-stack web application for equipment sales management.",
+        "Implementation of automated tests, code review and CI/CD.",
+        "Technologies: Laravel, Blade, Bootstrap, MySQL, GitHub Actions",
+      ],
+    },
+    {
+      role: "Full-stack Developer (internship)",
+      company: "Uni2Grow Cameroon",
+      period: "July 2023 - September 2023",
+      points: [
+        "Development of a web application for managing company leave and contracts.",
+        "Collaboration with a team of developers.",
+        "Technologies: PHP, Bootstrap, MySQL, Git",
+      ],
+    },
+    {
+      role: "Developer (internship)",
+      company: "Uni2Grow Cameroon",
+      period: "July 2022 - September 2022",
+      points: [
+        "Development of responsive interfaces.",
         "Collaboration with designers and project managers on iterative deliveries.",
       ],
     },

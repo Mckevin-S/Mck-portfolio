@@ -27,7 +27,7 @@ const fr = {
     label: "À propos",
     title: "Qui je suis",
     extra:
-      "Convaincu que la qualité technique sert le produit, j'accorde une attention particulière aux performances, à l'accessibilité et à la lisibilité du code — des fondations qui rendent les applications durables et agréables à maintenir.",
+      "Convaincu que la qualité technique sert le produit, j'accorde une attention particulière aux performances, à l'accessibilité et à la lisibilité du code - des fondations qui rendent les applications durables et agréables à maintenir.",
   },
   skills: {
     label: "Compétences",
@@ -103,7 +103,7 @@ const en: typeof fr = {
     label: "About",
     title: "Who I am",
     extra:
-      "Convinced that technical quality serves the product, I pay close attention to performance, accessibility and code readability — foundations that make applications durable and pleasant to maintain.",
+      "Convinced that technical quality serves the product, I pay close attention to performance, accessibility and code readability - foundations that make applications durable and pleasant to maintain.",
   },
   skills: {
     label: "Skills",
