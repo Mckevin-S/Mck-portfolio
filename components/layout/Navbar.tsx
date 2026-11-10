@@ -3,18 +3,16 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { navItems } from "../../lib/navigation";
-import { getDictionary } from "../../lib/dictionary";
 import { useLang } from "../../lib/language-context";
 import MobileMenu from "./MobileMenu";
 import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "../ui/ThemeToggle";
 
 export default function Navbar() {
-  const { lang } = useLang();
+  const { lang, dict } = useLang();
   const [active, setActive] = useState("#home");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const dict = getDictionary(lang);
 
   useEffect(() => {
     const onScroll = () => {

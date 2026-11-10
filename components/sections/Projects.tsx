@@ -5,12 +5,10 @@ import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import ProjectGrid from "../projects/ProjectGrid";
 import { projects } from "../../data/projects";
-import { getDictionary } from "../../lib/dictionary";
 import { useLang } from "../../lib/language-context";
 
 export default function Projects() {
-  const { lang } = useLang();
-  const dict = getDictionary(lang);
+  const { lang, dict } = useLang();
 
   return (
     <section id="projects" className="relative z-10 scroll-mt-24 py-20 md:py-[120px]">

@@ -6,12 +6,10 @@ import SectionTitle from "../ui/SectionTitle";
 import Badge from "../ui/Badge";
 import { profile } from "../../data/profile";
 import { skillGroups } from "../../data/skills";
-import { getDictionary } from "../../lib/dictionary";
 import { useLang } from "../../lib/language-context";
 
 export default function About() {
-  const { lang } = useLang();
-  const dict = getDictionary(lang);
+  const { lang, dict } = useLang();
   const data = profile[lang];
   const techs = skillGroups[lang].flatMap((group) => group.skills);
 
@@ -26,6 +24,16 @@ export default function About() {
 
         <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <div className="max-w-[680px]">
+            {/* Internship Callout Banner */}
+            <div className="mb-6 rounded-xl border border-secondary/30 bg-secondary/10 p-4.5 backdrop-blur-sm">
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-3 w-3 shrink-0 rounded-full bg-secondary" />
+                <p className="font-mono text-sm leading-relaxed text-text font-medium">
+                  {dict.about.internshipCallout}
+                </p>
+              </div>
+            </div>
+
             <p className="text-base leading-relaxed text-muted md:text-lg">
               {data.bio}
             </p>
@@ -35,23 +43,45 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            {data.stats.map((stat) => (
-              <div key={stat.label} className="card card-hover p-5">
-                <p className="font-mono text-2xl font-bold text-primary md:text-3xl">
-                  {stat.value}
-                </p>
-                <p className="mt-2 font-mono text-xs leading-snug text-muted">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+            {data.stats.map((stat, idx) => {
+              const isInternshipStat = idx === 3;
+              return (
+                <div
+                  key={stat.label}
+                  className={`card card-hover p-5 transition-all duration-300 ${
+                    isInternshipStat
+                      ? "border-secondary/40 bg-secondary/5 hover:border-secondary shadow-sm shadow-secondary/10"
+                      : "hover:border-primary/40"
+                  }`}
+                >
+                  <p
+                    className={`font-mono text-2xl font-bold md:text-3xl ${
+                      isInternshipStat ? "text-secondary" : "text-primary"
+                    }`}
+                  >
+                    {stat.value}
+                  </p>
+                  <p className="mt-2 font-mono text-xs leading-snug text-muted">
+                    {stat.label}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        <div className="mt-14 flex flex-wrap gap-2.5">
-          {techs.map((tech) => (
-            <Badge key={tech}>{tech}</Badge>
-          ))}
+        <div className="mt-16">
+          <div className="mb-5 flex items-center gap-3">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
+              {dict.about.techStackLabel}
+            </span>
+            <span className="h-px flex-1 bg-line" />
+          </div>
+          <div className="flex flex-wrap gap-2.5">
+            {techs.map((tech) => (
+              <Badge key={tech}>{tech}</Badge>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

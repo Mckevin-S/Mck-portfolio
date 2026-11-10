@@ -3,7 +3,6 @@
 import Link from "next/link";
 import React from "react";
 import { navItems } from "../../lib/navigation";
-import { getDictionary } from "../../lib/dictionary";
 import { useLang } from "../../lib/language-context";
 import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "../ui/ThemeToggle";
@@ -15,8 +14,7 @@ type MobileMenuProps = {
 };
 
 export default function MobileMenu({ open, active, onClose }: MobileMenuProps) {
-  const { lang } = useLang();
-  const dict = getDictionary(lang);
+  const { dict } = useLang();
 
   if (!open) return null;
 
