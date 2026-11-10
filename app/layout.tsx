@@ -5,7 +5,9 @@ import { cookies } from "next/headers";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import Background from "../components/Background";
+import ThemeProvider from "../components/ui/ThemeProvider";
+import KineticBackground from "../components/ui/KineticBackground";
+import { LanguageProvider } from "../lib/language-context";
 import { getLang, LANG_COOKIE } from "../lib/i18n";
 
 const geist = Geist({
@@ -63,13 +65,25 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
+      suppressHydrationWarning
       className={`${geist.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="relative flex min-h-screen flex-col">
-        <Background />
-        <Navbar lang={lang} />
-        <div className="flex-1">{children}</div>
-        <Footer lang={lang} />
+        <KineticBackground />
+        <ThemeProvider>
+          <LanguageProvider initialLang={lang}>
+            <Navbar />
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

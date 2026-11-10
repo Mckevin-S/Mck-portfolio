@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
@@ -5,9 +7,10 @@ import Badge from "../ui/Badge";
 import { profile } from "../../data/profile";
 import { skillGroups } from "../../data/skills";
 import { getDictionary } from "../../lib/dictionary";
-import type { Lang } from "../../types/lang";
+import { useLang } from "../../lib/language-context";
 
-export default function About({ lang }: { lang: Lang }) {
+export default function About() {
+  const { lang } = useLang();
   const dict = getDictionary(lang);
   const data = profile[lang];
   const techs = skillGroups[lang].flatMap((group) => group.skills);

@@ -4,25 +4,21 @@ import Link from "next/link";
 import React from "react";
 import { navItems } from "../../lib/navigation";
 import { getDictionary } from "../../lib/dictionary";
-import type { Lang } from "../../types/lang";
+import { useLang } from "../../lib/language-context";
 import LanguageToggle from "./LanguageToggle";
+import ThemeToggle from "../ui/ThemeToggle";
 
 type MobileMenuProps = {
-  lang: Lang;
   open: boolean;
   active: string;
   onClose: () => void;
 };
 
-export default function MobileMenu({
-  lang,
-  open,
-  active,
-  onClose,
-}: MobileMenuProps) {
-  if (!open) return null;
-
+export default function MobileMenu({ open, active, onClose }: MobileMenuProps) {
+  const { lang } = useLang();
   const dict = getDictionary(lang);
+
+  if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-40 md:hidden">
@@ -31,7 +27,7 @@ export default function MobileMenu({
         onClick={onClose}
         aria-hidden="true"
       />
-      <div className="glass absolute inset-x-3 top-20 rounded-lg p-2">
+      <div className="border border-line bg-background rounded-lg p-2 shadow-lg absolute inset-x-3 top-20">
         <div className="flex items-center justify-between px-4 py-3">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
             {dict.nav.navigation}
@@ -63,8 +59,9 @@ export default function MobileMenu({
             </li>
           ))}
         </ul>
-        <div className="mt-2 border-t border-line px-4 py-3">
-          <LanguageToggle lang={lang} />
+        <div className="mt-2 border-t border-line px-4 py-3 flex items-center justify-between">
+          <LanguageToggle />
+          <ThemeToggle />
         </div>
       </div>
     </div>

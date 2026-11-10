@@ -1,27 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useLang } from "../../lib/language-context";
 import { LANGS } from "../../lib/i18n";
-import type { Lang } from "../../types/lang";
 
-export default function LanguageToggle({
-  lang,
-  className = "",
-}: {
-  lang: Lang;
-  className?: string;
-}) {
-  const router = useRouter();
-
-  const switchTo = async (next: Lang) => {
-    if (next === lang) return;
-    await fetch("/api/locale", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ lang: next }),
-    });
-    router.refresh();
-  };
+export default function LanguageToggle({ className = "" }: { className?: string }) {
+  const { lang, setLang } = useLang();
 
   return (
     <div
@@ -33,7 +16,7 @@ export default function LanguageToggle({
         <button
           key={language}
           type="button"
-          onClick={() => switchTo(language)}
+          onClick={() => setLang(language)}
           aria-pressed={lang === language}
           className={`px-2.5 py-1.5 uppercase transition-colors ${
             lang === language

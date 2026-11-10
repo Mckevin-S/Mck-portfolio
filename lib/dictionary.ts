@@ -22,6 +22,8 @@ const fr = {
     downloadCv: "Télécharger mon CV",
     codeFocus: ["web performant", "UX", "clean code"],
     codeStatus: "// état: prêt à coder",
+    copyCode: "Copier",
+    copiedCode: "Copié !",
   },
   about: {
     label: "À propos",
@@ -42,6 +44,14 @@ const fr = {
     title: "Projets sélectionnés",
     demo: "Démo",
     source: "Source",
+    filterAll: "Tous",
+    categories: {
+      all: "Tous",
+      fullstack: "Full-Stack",
+      backend: "Backend & Web",
+      data: "Data & BI",
+      devops: "Cloud & DevOps",
+    },
   },
   contact: {
     label: "Contact",
@@ -66,6 +76,7 @@ const fr = {
     successTitle: "✓ Message envoyé",
     successText: "Merci pour votre message. Je vous réponds sous 24 heures.",
     sendAnother: "Envoyer un autre message",
+    autoReset: "Retour automatique dans",
   },
   footer: {
     builtWith: "Conçu & développé avec",
@@ -98,6 +109,8 @@ const en: typeof fr = {
     downloadCv: "Download my CV",
     codeFocus: ["performant web", "UX", "clean code"],
     codeStatus: "// status: ready to code",
+    copyCode: "Copy",
+    copiedCode: "Copied!",
   },
   about: {
     label: "About",
@@ -118,6 +131,14 @@ const en: typeof fr = {
     title: "Selected projects",
     demo: "Demo",
     source: "Source",
+    filterAll: "All",
+    categories: {
+      all: "All",
+      fullstack: "Full-Stack",
+      backend: "Backend & Web",
+      data: "Data & BI",
+      devops: "Cloud & DevOps",
+    },
   },
   contact: {
     label: "Contact",
@@ -142,6 +163,7 @@ const en: typeof fr = {
     successTitle: "✓ Message sent",
     successText: "Thanks for your message. I'll reply within 24 hours.",
     sendAnother: "Send another message",
+    autoReset: "Returning to form in",
   },
   footer: {
     builtWith: "Designed & built with",

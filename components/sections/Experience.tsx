@@ -1,11 +1,15 @@
+"use client";
+
 import React from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import { experience } from "../../data/experience";
 import { getDictionary } from "../../lib/dictionary";
-import type { Lang } from "../../types/lang";
+import { useLang } from "../../lib/language-context";
+import type { Experience } from "../../types/experience";
 
-export default function Experience({ lang }: { lang: Lang }) {
+export default function Experience() {
+  const { lang } = useLang();
   const dict = getDictionary(lang);
   const entries = experience[lang];
 
@@ -22,60 +26,104 @@ export default function Experience({ lang }: { lang: Lang }) {
         />
 
         <div className="relative">
-          <div className="absolute left-0 top-0 h-full w-px bg-line md:left-1/2 md:-translate-x-1/2" />
+          {/* vertical line */}
+          <div className="absolute left-3 top-0 h-full w-px bg-line-strong md:left-1/2 md:-translate-x-px" />
 
-          {entries.map((item, index) => {
-            const left = index % 2 === 0;
+          {entries.map((item, i) => {
+            const isLeft = i % 2 === 0;
             return (
               <div
                 key={`${item.company}-${item.period}`}
-                className={`relative pb-12 last:pb-0 md:w-1/2 md:pb-16 ${
-                  left ? "md:pr-12" : "md:ml-auto md:pl-12"
-                }`}
+                className="relative mb-8 last:mb-0 md:mb-14"
               >
-                <span
-                  className={`absolute left-[-5px] top-1 flex h-3 w-3 items-center justify-center md:left-auto ${
-                    left ? "md:right-[-5px]" : "md:left-[-5px]"
-                  }`}
-                >
-                  <span className="absolute h-full w-full animate-ping rounded-full bg-secondary opacity-40" />
-                  <span className="relative h-2.5 w-2.5 rounded-full bg-secondary" />
-                </span>
-
-                <div className={left ? "md:text-right" : ""}>
-                  <p className="font-mono text-sm text-secondary">
-                    {item.period}
-                  </p>
-                  <h3 className="mt-2 font-display text-xl font-semibold md:text-2xl">
-                    {item.role}{" "}
-                    <span className="text-muted">- {item.company}</span>
-                  </h3>
+                {/* mobile: dot left, card right */}
+                <div className="flex items-start gap-4 md:hidden">
+                  <span className="relative z-10 mt-2.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-[3px] border-primary bg-background">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  </span>
+                  <div className="group min-w-0 flex-1 rounded-xl border border-line bg-surface p-5 transition-colors hover:border-primary/30">
+                    <ExperienceContent item={item} />
+                  </div>
                 </div>
 
-                <ul
-                  className={`mt-4 max-w-[680px] space-y-2.5 ${
-                    left ? "md:ml-auto" : ""
-                  }`}
-                >
-                  {item.points.map((point) => (
-                    <li
-                      key={point}
-                      className={`flex gap-3 text-base leading-relaxed text-muted ${
-                        left ? "md:justify-end" : ""
-                      }`}
-                    >
-                      <span className="font-mono text-sm text-primary">
-                        -&gt;
+                {/* desktop: alternating */}
+                <div className="hidden md:grid md:grid-cols-[1fr_48px_1fr] md:items-start">
+                  {isLeft ? (
+                    <>
+                      <div className="pr-8 text-right">
+                        <div className="group inline-block w-full rounded-xl border border-line bg-surface p-6 text-left transition-colors hover:border-primary/30">
+                          <ExperienceContent item={item} />
+                        </div>
+                      </div>
+                      <span className="relative z-10 mx-auto mt-3 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-[3px] border-primary bg-background">
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                       </span>
-                      <span className="text-left">{point}</span>
-                    </li>
-                  ))}
-                </ul>
+                      <div />
+                    </>
+                  ) : (
+                    <>
+                      <div />
+                      <span className="relative z-10 mx-auto mt-3 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-[3px] border-primary bg-background">
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                      </span>
+                      <div className="pl-0">
+                        <div className="group inline-block w-full rounded-xl border border-line bg-surface p-6 text-left transition-colors hover:border-primary/30">
+                          <ExperienceContent item={item} />
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
             );
           })}
         </div>
       </Container>
     </section>
+  );
+}
+
+function ExperienceContent({ item }: { item: Experience }) {
+  return (
+    <>
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+        <div>
+          <h3 className="font-display text-lg font-semibold md:text-xl">
+            {item.role}
+          </h3>
+          <p className="mt-0.5 font-mono text-sm text-muted">
+            {item.company}
+          </p>
+        </div>
+        <span className="inline-flex w-fit items-center rounded-full border border-line bg-surface-raised px-3 py-1 font-mono text-xs text-muted">
+          {item.period}
+        </span>
+      </div>
+
+      <ul className="mt-5 space-y-2.5">
+        {item.points.map((point) => (
+          <li
+            key={point}
+            className="flex items-start gap-3 text-sm leading-relaxed text-muted"
+          >
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/60" />
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+
+      {item.technologies && item.technologies.length > 0 && (
+        <div className="mt-5 flex flex-wrap gap-2">
+          {item.technologies.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full border border-line bg-surface-raised px-3 py-1 font-mono text-xs font-medium text-text/80 transition-colors group-hover:border-primary/30 group-hover:text-primary"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
+    </>
   );
 }

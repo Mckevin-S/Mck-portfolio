@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
@@ -11,9 +13,10 @@ import {
 } from "../ui/icons";
 import { social } from "../../data/social";
 import { getDictionary } from "../../lib/dictionary";
-import type { Lang } from "../../types/lang";
+import { useLang } from "../../lib/language-context";
 
-export default function Contact({ lang }: { lang: Lang }) {
+export default function Contact() {
+  const { lang } = useLang();
   const dict = getDictionary(lang);
 
   return (
@@ -73,7 +76,7 @@ export default function Contact({ lang }: { lang: Lang }) {
             </div>
           </div>
 
-          <ContactForm lang={lang} />
+          <ContactForm />
         </div>
       </Container>
     </section>

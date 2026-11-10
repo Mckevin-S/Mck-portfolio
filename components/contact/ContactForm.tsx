@@ -1,23 +1,43 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../ui/Button";
 import { isEmail } from "../../lib/validations";
 import { getDictionary } from "../../lib/dictionary";
-import type { Lang } from "../../types/lang";
+import { useLang } from "../../lib/language-context";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export default function ContactForm({ lang }: { lang: Lang }) {
+export default function ContactForm() {
+  const { lang } = useLang();
   const dict = getDictionary(lang).form;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [website, setWebsite] = useState(""); // Honeypot anti-spam
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [countdown, setCountdown] = useState(6);
+
+  // Auto reset form to idle after successful submission
+  useEffect(() => {
+    if (status !== "success") return;
+    setCountdown(6);
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          setStatus("idle");
+          return 6;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [status]);
 
   const inputClasses =
-    "w-full rounded-[4px] border border-line bg-background px-4 py-3 font-mono text-sm text-text placeholder:text-muted/60 outline-none transition-colors focus:border-primary";
+    "w-full rounded-[4px] border border-line bg-surface px-4 py-3 font-mono text-sm text-text placeholder:text-muted/60 outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary/20";
 
   const labelClasses =
     "mb-2 block font-mono text-xs uppercase tracking-[0.2em] text-muted";
@@ -43,13 +63,14 @@ export default function ContactForm({ lang }: { lang: Lang }) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, website }),
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
       setName("");
       setEmail("");
       setMessage("");
+      setWebsite("");
     } catch {
       setStatus("error");
       setError(dict.genericError);
@@ -58,20 +79,48 @@ export default function ContactForm({ lang }: { lang: Lang }) {
 
   if (status === "success") {
     return (
-      <div className="card flex flex-col items-start gap-4 p-8">
+      <div className="card flex flex-col items-start gap-4 p-8 transition-all duration-300">
         <p className="font-mono font-semibold text-secondary">
           {dict.successTitle}
         </p>
         <p className="text-sm leading-relaxed text-muted">{dict.successText}</p>
-        <Button variant="ghost" onClick={() => setStatus("idle")}>
-          {dict.sendAnother}
-        </Button>
+        <div className="mt-2 flex flex-wrap items-center gap-4">
+          <Button variant="ghost" onClick={() => setStatus("idle")}>
+            {dict.sendAnother}
+          </Button>
+          <span className="font-mono text-xs text-muted">
+            {dict.autoReset} {countdown}s
+          </span>
+        </div>
       </div>
     );
   }
 
   return (
     <form onSubmit={onSubmit} className="card space-y-5 p-6 md:p-8">
+      {/* Honeypot field invisible to humans, filled only by automated spam bots */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          top: "-9999px",
+          opacity: 0,
+          pointerEvents: "none",
+        }}
+      >
+        <label htmlFor="website-hp">Website</label>
+        <input
+          id="website-hp"
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="contact-name" className={labelClasses}>

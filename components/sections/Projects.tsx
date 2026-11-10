@@ -1,12 +1,15 @@
+"use client";
+
 import React from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import ProjectGrid from "../projects/ProjectGrid";
 import { projects } from "../../data/projects";
 import { getDictionary } from "../../lib/dictionary";
-import type { Lang } from "../../types/lang";
+import { useLang } from "../../lib/language-context";
 
-export default function Projects({ lang }: { lang: Lang }) {
+export default function Projects() {
+  const { lang } = useLang();
   const dict = getDictionary(lang);
 
   return (
@@ -17,7 +20,7 @@ export default function Projects({ lang }: { lang: Lang }) {
           label={dict.projects.label}
           title={dict.projects.title}
         />
-        <ProjectGrid projects={projects[lang]} lang={lang} />
+        <ProjectGrid projects={projects[lang]} />
       </Container>
     </section>
   );

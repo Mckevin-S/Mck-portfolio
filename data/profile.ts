@@ -15,7 +15,7 @@ export const profile: Record<Lang, Profile> = {
     stats: [
       { label: "Années d'expérience", value: "3+" },
       { label: "Projets livrés", value: "12+" },
-      { label: "Technologies maîtrisées", value: "8" },
+      { label: "Technologies maîtrisées", value: "20+" },
       { label: "Temps de réponse", value: "<24h" },
     ],
   },
@@ -32,7 +32,7 @@ export const profile: Record<Lang, Profile> = {
     stats: [
       { label: "Years of experience", value: "3+" },
       { label: "Projects shipped", value: "12+" },
-      { label: "Technologies mastered", value: "8" },
+      { label: "Technologies mastered", value: "20+" },
       { label: "Response time", value: "<24h" },
     ],
   },

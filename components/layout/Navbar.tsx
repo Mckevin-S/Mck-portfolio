@@ -4,11 +4,13 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { navItems } from "../../lib/navigation";
 import { getDictionary } from "../../lib/dictionary";
-import type { Lang } from "../../types/lang";
+import { useLang } from "../../lib/language-context";
 import MobileMenu from "./MobileMenu";
 import LanguageToggle from "./LanguageToggle";
+import ThemeToggle from "../ui/ThemeToggle";
 
-export default function Navbar({ lang }: { lang: Lang }) {
+export default function Navbar() {
+  const { lang } = useLang();
   const [active, setActive] = useState("#home");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +19,6 @@ export default function Navbar({ lang }: { lang: Lang }) {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 8);
-
       const pos = window.scrollY + window.innerHeight * 0.35;
       let current = "#home";
       for (const item of navItems) {
@@ -32,7 +33,6 @@ export default function Navbar({ lang }: { lang: Lang }) {
       }
       setActive(current);
     };
-
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -41,8 +41,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled ? "glass" : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
+          scrolled ? "border-line bg-background/80 backdrop-blur-md" : "border-transparent"
         }`}
       >
         <nav className="mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between px-4 md:px-6">
@@ -51,7 +51,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             className="font-mono text-sm font-semibold text-primary"
             aria-label={dict.nav.links.home}
           >
-            mk<span className="text-muted">@dev:~$</span>
+            Mck<span className="text-muted">@dev:~$</span>
           </Link>
 
           <ul className="hidden items-center gap-6 lg:gap-8 md:flex">
@@ -72,9 +72,10 @@ export default function Navbar({ lang }: { lang: Lang }) {
             ))}
           </ul>
 
-          <div className="flex items-center gap-3">
-            <div className="hidden md:block">
-              <LanguageToggle lang={lang} />
+          <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
+              <LanguageToggle />
+              <ThemeToggle />
             </div>
             <button
               type="button"
@@ -90,7 +91,6 @@ export default function Navbar({ lang }: { lang: Lang }) {
       </header>
 
       <MobileMenu
-        lang={lang}
         open={open}
         active={active}
         onClose={() => setOpen(false)}

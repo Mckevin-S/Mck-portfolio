@@ -1,11 +1,14 @@
+"use client";
+
 import React from "react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import { skillGroups } from "../../data/skills";
 import { getDictionary } from "../../lib/dictionary";
-import type { Lang } from "../../types/lang";
+import { useLang } from "../../lib/language-context";
 
-export default function Skills({ lang }: { lang: Lang }) {
+export default function Skills() {
+  const { lang } = useLang();
   const dict = getDictionary(lang);
   const groups = skillGroups[lang];
 
@@ -18,7 +21,7 @@ export default function Skills({ lang }: { lang: Lang }) {
           title={dict.skills.title}
         />
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {groups.map((group) => (
             <div key={group.label} className="card card-hover p-6">
               <div className="flex items-center gap-3 font-mono text-sm">

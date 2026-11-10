@@ -1,17 +1,14 @@
+"use client";
+
 import React from "react";
 import TerminalWindow from "../ui/TerminalWindow";
 import { ArrowUpRightIcon } from "../ui/icons";
 import { getDictionary } from "../../lib/dictionary";
-import type { Lang } from "../../types/lang";
+import { useLang } from "../../lib/language-context";
 import type { Project } from "../../types/project";
 
-export default function ProjectCard({
-  project,
-  lang,
-}: {
-  project: Project;
-  lang: Lang;
-}) {
+export default function ProjectCard({ project }: { project: Project }) {
+  const { lang } = useLang();
   const dict = getDictionary(lang);
   const file = `${project.title
     .toLowerCase()
@@ -52,20 +49,30 @@ export default function ProjectCard({
         </div>
 
         <div className="mt-6 flex items-center gap-6 border-t border-line pt-4">
-          <a
-            href={project.demo}
-            className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-primary transition-colors hover:text-primary-dim"
-          >
-            {dict.projects.demo} <ArrowUpRightIcon className="h-3.5 w-3.5" />
-          </a>
-          <a
-            href={project.source}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-muted transition-colors hover:text-primary"
-          >
-            {dict.projects.source} <ArrowUpRightIcon className="h-3.5 w-3.5" />
-          </a>
+          {project.demo && project.demo !== "#" && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-primary transition-colors hover:text-primary-dim"
+            >
+              {dict.projects.demo} <ArrowUpRightIcon className="h-3.5 w-3.5" />
+            </a>
+          )}
+          {project.source && (
+            <a
+              href={project.source}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex items-center gap-1.5 font-mono text-xs transition-colors ${
+                project.demo && project.demo !== "#"
+                  ? "text-muted hover:text-primary"
+                  : "font-semibold text-primary hover:text-primary-dim"
+              }`}
+            >
+              {dict.projects.source} <ArrowUpRightIcon className="h-3.5 w-3.5" />
+            </a>
+          )}
         </div>
       </div>
     </TerminalWindow>

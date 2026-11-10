@@ -18,9 +18,9 @@ const base =
 
 const variants = {
   primary:
-    "bg-primary text-on-primary hover:bg-[#4ffcff] hover:shadow-[0_0_30px_rgba(0,245,255,0.35)]",
+    "bg-primary text-on-primary hover:bg-primary-dim",
   ghost:
-    "border border-primary/40 text-primary hover:border-primary hover:bg-primary/10",
+    "border border-line text-text hover:border-primary hover:text-primary",
 };
 
 export default function Button({

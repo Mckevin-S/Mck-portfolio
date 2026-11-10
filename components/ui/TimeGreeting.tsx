@@ -1,11 +1,11 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import type { Lang } from "../../types/lang";
+import { useLang } from "../../lib/language-context";
 
 const subscribe = () => () => {};
 
-function getGreeting(lang: Lang): string {
+function getGreeting(lang: string): string {
   const hour = new Date().getHours();
   const evening = hour >= 18 || hour < 5;
   return evening
@@ -17,11 +17,12 @@ function getGreeting(lang: Lang): string {
       : "Hello";
 }
 
-export default function TimeGreeting({ lang }: { lang: Lang }) {
+export default function TimeGreeting() {
+  const { lang } = useLang();
   const word = useSyncExternalStore(
     subscribe,
     () => getGreeting(lang),
-    () => (lang === "fr" ? "Bonjour" : "Hello")
+    () => "Bonjour"
   );
   return <>{word}</>;
 }
