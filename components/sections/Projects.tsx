@@ -11,7 +11,7 @@ export default function Projects() {
   const { lang, dict } = useLang();
 
   return (
-    <section id="projects" className="relative z-10 scroll-mt-24 py-20 md:py-[120px]">
+    <section id="projects" className="relative z-10 scroll-mt-24 py-14 sm:py-16 md:py-[120px]">
       <Container>
         <SectionTitle
           index="04"

@@ -91,7 +91,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       type="button"
       onClick={toggle}
       aria-label={theme === "light" ? "Passer en mode sombre" : "Passer en mode clair"}
-      className={`flex h-8 w-8 items-center justify-center rounded-[4px] border border-line text-muted transition-colors hover:text-text ${className}`}
+      className={`flex h-11 w-11 items-center justify-center rounded-[4px] border border-line text-muted transition-colors hover:text-text ${className}`}
     >
       {theme === "light" ? (
         <MoonIcon className="h-4 w-4" />

@@ -49,7 +49,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative z-10 scroll-mt-24 py-20 md:py-[120px]"
+      className="relative z-10 scroll-mt-24 py-14 sm:py-16 md:py-[120px]"
     >
       <Container>
         <SectionTitle
@@ -60,7 +60,7 @@ export default function Experience() {
 
         <div className="relative">
           {/* vertical line */}
-          <div className="absolute bottom-3 left-3.5 top-3 w-px bg-gradient-to-b from-primary/70 via-line-strong to-transparent md:left-1/2 md:-translate-x-px" />
+          <div className="absolute bottom-3 left-3.5 top-3 w-px bg-gradient-to-b from-primary/70 via-line-strong to-transparent xl:left-1/2 xl:-translate-x-px" />
 
           {entries.map((item, i) => {
             const isLeft = i % 2 === 0;
@@ -91,14 +91,14 @@ export default function Experience() {
             return (
               <div
                 key={`${item.company}-${item.period}`}
-                className="relative mb-8 last:mb-0 md:mb-12"
+                className="relative mb-7 last:mb-0 sm:mb-8 xl:mb-12"
               >
-                <div className="flex items-start gap-4 md:hidden">
+                <div className="flex min-w-0 items-start gap-3 sm:gap-4 xl:hidden">
                   <div className="mt-2">{marker}</div>
                   <div className="min-w-0 flex-1">{card}</div>
                 </div>
 
-                <div className="hidden md:grid md:grid-cols-[1fr_48px_1fr] md:items-start">
+                <div className="hidden xl:grid xl:grid-cols-[1fr_48px_1fr] xl:items-start">
                   {isLeft ? (
                     <>
                       <div className="pr-8">{card}</div>
@@ -135,7 +135,7 @@ function ExperienceContent({
 }) {
   return (
     <>
-      <div className="relative flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+      <div className="relative flex min-w-0 flex-col gap-3 lg:flex-row lg:items-start lg:justify-between lg:gap-4">
         <div>
           <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
             {label} <span className="text-primary">/ 0{index + 1}</span>
@@ -147,7 +147,7 @@ function ExperienceContent({
             @{item.company}
           </p>
         </div>
-        <span className="inline-flex w-fit shrink-0 items-center rounded-full border border-line bg-surface-raised px-3 py-1.5 font-mono text-[11px] text-muted shadow-xs">
+        <span className="inline-flex w-fit max-w-full flex-wrap items-center rounded-xl border border-line bg-surface-raised px-3 py-1.5 font-mono text-[11px] leading-relaxed text-muted shadow-xs sm:rounded-full">
           {item.period}
         </span>
       </div>
@@ -156,10 +156,10 @@ function ExperienceContent({
         {item.points.map((point) => (
           <li
             key={point}
-            className="flex items-start gap-3 text-sm leading-relaxed text-muted"
+            className="flex min-w-0 items-start gap-3 text-sm leading-relaxed text-muted"
           >
             <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bullet}`} />
-            <span>{point}</span>
+            <span className="min-w-0 break-words">{point}</span>
           </li>
         ))}
       </ul>

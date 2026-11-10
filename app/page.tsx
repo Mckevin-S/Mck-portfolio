@@ -9,7 +9,7 @@ import Contact from "../components/sections/Contact";
 
 export default function Page() {
   return (
-    <main className="relative">
+    <main className="relative min-w-0">
       <Hero />
       <About />
       <Skills />

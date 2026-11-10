@@ -12,7 +12,7 @@ export default function About() {
   const experienceStat = data.stats[0];
 
   return (
-    <section id="about" className="relative z-10 scroll-mt-24 py-20 md:py-[120px]">
+    <section id="about" className="relative z-10 scroll-mt-24 py-14 sm:py-16 md:py-[120px]">
       <Container>
         <SectionTitle
           index="01"
@@ -20,16 +20,16 @@ export default function About() {
           title={dict.about.title}
         />
 
-        <div className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:gap-12">
-          <div className="card relative overflow-hidden border-primary/20 bg-gradient-to-br from-primary/10 via-surface to-secondary/5 p-6 shadow-lg shadow-primary/5 sm:p-8 md:p-10">
+        <div className="grid min-w-0 gap-5 sm:gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:gap-12">
+          <div className="card relative min-w-0 overflow-hidden border-primary/20 bg-gradient-to-br from-primary/10 via-surface to-secondary/5 p-5 shadow-lg shadow-primary/5 sm:p-8 md:p-10">
             <div className="absolute -right-20 -top-24 h-56 w-56 rounded-full bg-primary/15 blur-3xl" />
             <div className="absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-secondary/10 blur-3xl" />
             <div className="relative">
-              <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/60 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-primary">
+              <p className="mb-5 inline-flex max-w-full flex-wrap items-center gap-2 rounded-2xl border border-primary/20 bg-background/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-primary sm:rounded-full sm:text-[11px] sm:tracking-[0.16em]">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                 {data.role} <span className="text-muted">/</span> {data.location}
               </p>
-              <p className="max-w-3xl text-base leading-relaxed text-muted md:text-lg">
+              <p className="max-w-3xl break-words text-base leading-relaxed text-muted md:text-lg">
                 {data.bio}
               </p>
 
@@ -44,7 +44,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex min-w-0 flex-col gap-4">
             {experienceStat && (
               <div className="card relative flex flex-1 flex-col justify-between overflow-hidden border-secondary/20 bg-gradient-to-br from-secondary/10 via-surface to-primary/5 p-6 sm:p-8">
                 <div className="absolute -bottom-16 -right-10 h-48 w-48 rounded-full bg-secondary/15 blur-3xl" />
@@ -68,14 +68,14 @@ export default function About() {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-16">
+        <div className="mt-10 sm:mt-12 md:mt-16">
           <div className="mb-5 flex items-center gap-3">
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
               {dict.about.principlesTitle}
             </h3>
             <span className="h-px flex-1 bg-line" />
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-3 sm:gap-4 md:grid-cols-3">
             {dict.about.principles.map((principle, index) => (
               <article
                 key={principle.title}
@@ -95,7 +95,6 @@ export default function About() {
             ))}
           </div>
         </div>
-
       </Container>
     </section>
   );

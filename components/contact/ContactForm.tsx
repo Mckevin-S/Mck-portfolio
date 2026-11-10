@@ -37,7 +37,7 @@ export default function ContactForm() {
   }, [status]);
 
   const inputClasses =
-    "w-full rounded-[4px] border border-line bg-surface px-4 py-3 font-mono text-sm text-text placeholder:text-muted/60 outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary/20";
+    "w-full rounded-[4px] border border-line bg-surface px-4 py-3 font-mono text-base text-text placeholder:text-muted/60 outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary/20 sm:text-sm";
 
   const labelClasses =
     "mb-2 block font-mono text-xs uppercase tracking-[0.2em] text-muted";
@@ -97,7 +97,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="card space-y-5 p-6 md:p-8">
+    <form onSubmit={onSubmit} className="card min-w-0 space-y-5 p-4 sm:p-6 md:p-8">
       {/* Honeypot field invisible to humans, filled only by automated spam bots */}
       <div
         aria-hidden="true"
@@ -160,7 +160,7 @@ export default function ContactForm() {
           id="contact-message"
           rows={5}
           placeholder={dict.messagePlaceholder}
-          className={`${inputClasses} resize-none`}
+          className={`${inputClasses} min-h-32 resize-y`}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />

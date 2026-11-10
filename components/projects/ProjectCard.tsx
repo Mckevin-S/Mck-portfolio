@@ -19,16 +19,16 @@ export default function ProjectCard({ project }: { project: Project }) {
       className="card-hover flex h-full w-full flex-col shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5"
     >
       <div className="flex flex-1 flex-col">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <h3 className="font-display text-xl font-bold tracking-tight text-text">
+        <div className="flex min-w-0 flex-wrap items-start justify-between gap-2.5">
+          <div className="min-w-0 flex-1">
+            <h3 className="break-words font-display text-lg font-bold tracking-tight text-text sm:text-xl">
               {project.title}
             </h3>
             <p className="mt-1 font-mono text-xs font-medium text-primary">
               {project.subtitle}
             </p>
           </div>
-          <span className="rounded-full border border-primary/20 bg-primary/5 px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-primary">
+          <span className="max-w-full rounded-full border border-primary/20 bg-primary/5 px-2.5 py-1 font-mono text-[9px] font-semibold uppercase leading-tight tracking-wider text-primary sm:text-[10px]">
             {dict.projects.categories[project.category]}
           </span>
         </div>
@@ -41,10 +41,10 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.highlights.map((highlight) => (
             <li
               key={highlight}
-              className="flex items-center gap-2 font-mono text-xs text-muted"
+              className="flex items-start gap-2 font-mono text-xs leading-relaxed text-muted"
             >
               <span className="text-secondary font-bold">+</span>
-              <span>{highlight}</span>
+              <span className="min-w-0 break-words">{highlight}</span>
             </li>
           ))}
         </ul>

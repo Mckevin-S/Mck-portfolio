@@ -15,7 +15,7 @@ export default function LanguageToggle({
     <div
       role="group"
       aria-label="Language selection"
-      className={`relative inline-flex items-center rounded-full border border-line bg-surface/80 p-0.5 shadow-sm backdrop-blur-sm ${className}`}
+      className={`relative inline-flex min-h-11 items-center rounded-full border border-line bg-surface/80 p-0.5 shadow-sm backdrop-blur-sm ${className}`}
     >
       {LANGS.map((language) => {
         const isActive = lang === language;
@@ -25,7 +25,7 @@ export default function LanguageToggle({
             type="button"
             onClick={() => setLang(language)}
             aria-pressed={isActive}
-            className={`relative z-10 flex items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[11px] font-medium transition-all duration-200 cursor-pointer ${
+            className={`relative z-10 flex min-h-10 items-center gap-1 rounded-full px-3 py-1 font-mono text-[11px] font-medium transition-all duration-200 cursor-pointer ${
               isActive
                 ? "bg-primary text-on-primary font-bold shadow-sm"
                 : "text-muted hover:text-text"

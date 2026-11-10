@@ -18,7 +18,7 @@ export default function Contact() {
   const { dict } = useLang();
 
   return (
-    <section id="contact" className="relative z-10 scroll-mt-24 py-20 md:py-[120px]">
+    <section id="contact" className="relative z-10 scroll-mt-24 py-14 sm:py-16 md:py-[120px]">
       <Container>
         <SectionTitle
           index="05"
@@ -26,9 +26,9 @@ export default function Contact() {
           title={dict.contact.title}
         />
 
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+        <div className="grid min-w-0 gap-8 sm:gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div>
-            <h3 className="font-display text-2xl font-bold md:text-3xl">
+            <h3 className="break-words font-display text-xl font-bold sm:text-2xl md:text-3xl">
               {dict.contact.heading}
             </h3>
             <p className="mt-4 max-w-[480px] leading-relaxed text-muted">
@@ -36,8 +36,8 @@ export default function Contact() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button href={`mailto:${social.email}`}>
-                <MailIcon className="h-4 w-4" /> {social.email}
+              <Button href={`mailto:${social.email}`} className="max-w-full break-all px-3 text-xs sm:px-5 sm:text-sm">
+                <MailIcon className="h-4 w-4 shrink-0" /> {social.email}
               </Button>
             </div>
 

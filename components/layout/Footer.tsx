@@ -13,13 +13,13 @@ export default function Footer() {
     <footer className="relative z-10 border-t border-line py-10">
       <div className="mx-auto w-full max-w-[1200px] px-4 md:px-6">
         {/* Top row */}
-        <div className="flex flex-col items-center gap-5 md:flex-row md:justify-between">
-          <p className="font-mono text-xs text-muted">
+        <div className="flex flex-col items-center gap-5 text-center md:flex-row md:justify-between md:text-left">
+          <p className="max-w-full break-words font-mono text-xs text-muted">
             © {new Date().getFullYear()} {profile[lang].name} —{" "}
             {dict.footer.builtWith}{" "}
             <span className="text-primary">Next.js & Tailwind CSS</span>
           </p>
-          <div className="flex items-center gap-6 font-mono text-xs text-muted">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 font-mono text-xs text-muted md:justify-end">
             <a
               href={social.github}
               target="_blank"
@@ -50,7 +50,7 @@ export default function Footer() {
 
         {/* Bottom row */}
         <div className="mt-5 flex flex-col items-center justify-between gap-3 border-t border-line/50 pt-5 md:flex-row">
-          <p className="font-mono text-[10px] text-muted/60">
+          <p className="text-center font-mono text-[10px] text-muted/60 md:text-left">
             {dict.footer.rights}
           </p>
           <a

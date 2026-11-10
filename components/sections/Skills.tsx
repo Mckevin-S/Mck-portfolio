@@ -49,7 +49,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="relative z-10 scroll-mt-24 py-20 md:py-[120px]">
+    <section id="skills" className="relative z-10 scroll-mt-24 py-14 sm:py-16 md:py-[120px]">
       <Container>
         <SectionTitle
           index="02"
@@ -57,14 +57,14 @@ export default function Skills() {
           title={dict.skills.title}
         />
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid min-w-0 gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3">
           {groups.map((group, index) => {
             const accent = accents[index % accents.length];
 
             return (
               <article
                 key={group.label}
-                className="card card-hover group relative flex flex-col justify-between overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
+                className="card card-hover group relative flex min-w-0 flex-col justify-between overflow-hidden p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 sm:p-6"
               >
                 <div
                   className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${accent.line} to-transparent`}
@@ -80,7 +80,7 @@ export default function Skills() {
                       <span className="font-mono text-[10px] tracking-[0.16em] text-muted">
                         0{index + 1}
                       </span>
-                      <h3 className="font-display text-sm font-semibold text-text">
+                      <h3 className="break-words font-display text-sm font-semibold leading-snug text-text">
                         {group.label}
                       </h3>
                     </div>

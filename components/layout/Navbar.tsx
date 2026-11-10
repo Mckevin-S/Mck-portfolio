@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { navItems } from "../../lib/navigation";
 import { useLang } from "../../lib/language-context";
 import MobileMenu from "./MobileMenu";
@@ -9,10 +9,17 @@ import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "../ui/ThemeToggle";
 
 export default function Navbar() {
-  const { lang, dict } = useLang();
+  const { dict } = useLang();
   const [active, setActive] = useState("#home");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const closeMenu = useCallback((restoreFocus = true) => {
+    setOpen(false);
+    if (restoreFocus) {
+      requestAnimationFrame(() => menuButtonRef.current?.focus());
+    }
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -52,7 +59,7 @@ export default function Navbar() {
             Mck<span className="text-muted">@dev:~$</span>
           </Link>
 
-          <ul className="hidden items-center gap-6 lg:gap-8 md:flex">
+          <ul className="hidden items-center gap-4 xl:gap-6 lg:flex">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
@@ -71,13 +78,14 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden items-center gap-2 lg:flex">
               <LanguageToggle />
               <ThemeToggle />
             </div>
             <button
+              ref={menuButtonRef}
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-[4px] border border-line font-mono text-sm text-text md:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-[4px] border border-line font-mono text-sm text-text lg:hidden"
               aria-label={dict.nav.openMenu}
               aria-expanded={open}
               onClick={() => setOpen(true)}
@@ -91,7 +99,7 @@ export default function Navbar() {
       <MobileMenu
         open={open}
         active={active}
-        onClose={() => setOpen(false)}
+        onClose={closeMenu}
       />
     </>
   );

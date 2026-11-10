@@ -35,7 +35,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
   return (
     <div>
       {/* Category Filters */}
-      <div className="mb-10 flex flex-wrap items-center gap-2">
+      <div className="mb-8 flex flex-wrap items-center gap-2 sm:mb-10">
         {categories.map((cat) => {
           const isActive = activeCategory === cat;
           const label = dict.projects.categories[cat];
@@ -69,7 +69,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
       </div>
 
       {/* Grid */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid min-w-0 gap-4 sm:gap-6 lg:grid-cols-2 xl:grid-cols-3">
         {filteredProjects.map((project) => (
           <div key={project.slug} className="flex">
             <ProjectCard project={project} />

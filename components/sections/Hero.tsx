@@ -75,10 +75,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative z-10 flex min-h-screen items-center scroll-mt-20 pt-28 pb-16 md:pt-32"
+      className="relative z-10 flex min-h-screen min-h-[100svh] items-center scroll-mt-20 px-0 pb-12 pt-24 sm:pb-16 sm:pt-28 md:pt-32"
     >
-      <div className="mx-auto grid w-full max-w-[1200px] items-center gap-12 px-4 md:px-6 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
-        <div>
+      <div className="mx-auto grid w-full max-w-[1200px] min-w-0 items-center gap-8 px-4 sm:gap-10 md:px-6 lg:grid-cols-[1.1fr_1fr] lg:gap-8 xl:gap-10">
+        <div className="min-w-0">
           <div className="flex items-center gap-4 mb-6">
             <div className="relative h-20 w-20 overflow-hidden rounded-full ring-2 ring-primary/40 shadow-lg shadow-primary/10 transition-transform duration-300 hover:scale-105 md:h-24 md:w-24">
               <Image
@@ -95,7 +95,7 @@ export default function Hero() {
                 <span className="text-muted">{"//"}</span>{" "}
                 <TimeGreeting />, {dict.hero.greetingSuffix}
               </p>
-              <h2 className="font-display text-2xl font-bold tracking-tight text-text md:text-3xl">
+              <h2 className="font-display text-xl font-bold tracking-tight text-text sm:text-2xl md:text-3xl">
                 {data.firstName}{" "}
                 <span className="bg-gradient-to-r from-primary to-primary-dim bg-clip-text text-transparent">
                   {data.name.replace(data.firstName, "").trim()}
@@ -104,7 +104,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-secondary/40 bg-secondary/10 px-4 py-1.5 font-mono text-xs text-secondary shadow-sm shadow-secondary/10 backdrop-blur-sm transition-all hover:border-secondary/60">
+          <div className="mb-6 inline-flex max-w-full items-start gap-2.5 rounded-2xl border border-secondary/40 bg-secondary/10 px-3 py-2 font-mono text-[11px] leading-relaxed text-secondary shadow-sm shadow-secondary/10 backdrop-blur-sm transition-all hover:border-secondary/60 sm:items-center sm:rounded-full sm:px-4 sm:py-1.5 sm:text-xs">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary" />
@@ -114,9 +114,9 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="font-display text-3xl font-extrabold tracking-tight md:text-5xl lg:text-[54px] lg:leading-[1.12]">
+          <h1 className="font-display text-[clamp(2rem,8vw,3rem)] font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-[54px] lg:leading-[1.12]">
             <span className="text-text">{data.role}</span>
-            <span className="block mt-2 text-xl font-medium text-muted md:text-2xl">
+            <span className="mt-2 block text-lg font-medium leading-snug text-muted sm:text-xl md:text-2xl">
               Backend, Frontend & Architecture Cloud
             </span>
           </h1>
@@ -125,23 +125,24 @@ export default function Hero() {
             {data.intro}
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3.5">
-            <Button href="#projects" className="shadow-lg shadow-primary/20">
+          <div className="mt-8 flex flex-col items-stretch gap-3 min-[420px]:flex-row min-[420px]:flex-wrap min-[420px]:items-center">
+            <Button href="#projects" className="w-full shadow-lg shadow-primary/20 min-[420px]:w-auto">
               {dict.hero.viewProjects} <ArrowDownIcon className="h-4 w-4" />
             </Button>
-            <Button href="#contact" variant="ghost">
+            <Button href="#contact" variant="ghost" className="w-full min-[420px]:w-auto">
               {dict.hero.contact}
             </Button>
             <Button
               href={CV_PATH}
               variant="ghost"
               download="CV_Mckevin_Kamguem.pdf"
+              className="w-full min-[420px]:w-auto"
             >
               {dict.hero.downloadCv}
             </Button>
           </div>
 
-          <div className="mt-9 flex items-center gap-5 border-t border-line/60 pt-6">
+          <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-line/60 pt-5 sm:mt-9 sm:gap-5 sm:pt-6">
             <span className="font-mono text-xs text-muted">
               {data.location}
             </span>
@@ -175,14 +176,14 @@ export default function Hero() {
           </div>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <TerminalWindow
             title={
               <div className="flex items-center gap-1.5">
                 <button
                   type="button"
                   onClick={() => setActiveTab("profile.ts")}
-                  className={`rounded px-2.5 py-1 font-mono text-xs transition-colors cursor-pointer ${activeTab === "profile.ts"
+                  className={`rounded px-1.5 py-1 font-mono text-[10px] transition-colors cursor-pointer sm:px-2.5 sm:text-xs ${activeTab === "profile.ts"
                       ? "bg-primary/20 text-primary font-semibold"
                       : "text-muted hover:text-slate-200"
                     }`}
@@ -192,7 +193,7 @@ export default function Hero() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("stack.sh")}
-                  className={`rounded px-2.5 py-1 font-mono text-xs transition-colors cursor-pointer ${activeTab === "stack.sh"
+                  className={`rounded px-1.5 py-1 font-mono text-[10px] transition-colors cursor-pointer sm:px-2.5 sm:text-xs ${activeTab === "stack.sh"
                       ? "bg-primary/20 text-primary font-semibold"
                       : "text-muted hover:text-slate-200"
                     }`}
@@ -206,7 +207,7 @@ export default function Hero() {
                 type="button"
                 onClick={handleCopy}
                 aria-label={copied ? dict.hero.copiedCode : dict.hero.copyCode}
-                className="flex items-center gap-1.5 rounded border border-slate-700/70 bg-slate-800/80 px-2.5 py-1 font-mono text-[11px] text-slate-300 transition-colors hover:border-primary/50 hover:text-primary cursor-pointer"
+                className="flex items-center gap-1 rounded border border-slate-700/70 bg-slate-800/80 px-2 py-1 font-mono text-[10px] text-slate-300 transition-colors hover:border-primary/50 hover:text-primary cursor-pointer sm:gap-1.5 sm:px-2.5 sm:text-[11px]"
               >
                 {copied ? (
                   <>
