@@ -29,7 +29,7 @@ export default function About() {
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                 {data.role} <span className="text-muted">/</span> {data.location}
               </p>
-              <p className="max-w-3xl text-lg leading-relaxed text-text md:text-xl md:leading-relaxed">
+              <p className="max-w-3xl text-base leading-relaxed text-muted md:text-lg">
                 {data.bio}
               </p>
 
