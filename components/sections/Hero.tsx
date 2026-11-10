@@ -50,18 +50,15 @@ export default function Hero() {
   name: "${data.name}",
   role: "${data.role}",
   location: "${data.location}",
-  status: "${data.availability}",
   stack: ["Java (Spring Boot)", "React / Next.js", "Python (FastAPI)", "Docker"],
   architecture: ["Clean Architecture", "REST & WebSockets", "CI/CD & IaC"],
   focus: [${dict.hero.codeFocus.map((f) => `"${f}"`).join(", ")}],
-  availableForInternship: true,
 };
-${dict.hero.codeStatus}`;
+`;
 
   const stackText = `$ mck --profile
 ● Candidate: ${data.name}
 ● Role:      ${data.role}
-● Search:    Stage 6 mois (Février 2027) 
 ● Location:  France 🇫🇷 (Mobilité France / Remote)
 ● Backend:   Java 21 (Spring Boot), PHP (Laravel), Python (FastAPI)
 ● Frontend:  React 19, Next.js, Vite, Tailwind CSS v4, Flutter
@@ -82,17 +79,6 @@ ${dict.hero.codeStatus}`;
     >
       <div className="mx-auto grid w-full max-w-[1200px] items-center gap-12 px-4 md:px-6 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
         <div>
-          {/* Internship Highlight Pill */}
-          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-secondary/40 bg-secondary/10 px-4 py-1.5 font-mono text-xs text-secondary shadow-sm shadow-secondary/10 backdrop-blur-sm transition-all hover:border-secondary/60">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary" />
-            </span>
-            <span className="font-semibold tracking-wide">
-              {dict.hero.internshipBadge}
-            </span>
-          </div>
-
           <div className="flex items-center gap-4 mb-6">
             <div className="relative h-20 w-20 overflow-hidden rounded-full ring-2 ring-primary/40 shadow-lg shadow-primary/10 transition-transform duration-300 hover:scale-105 md:h-24 md:w-24">
               <Image
@@ -116,6 +102,16 @@ ${dict.hero.codeStatus}`;
                 </span>
               </h2>
             </div>
+          </div>
+
+          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-secondary/40 bg-secondary/10 px-4 py-1.5 font-mono text-xs text-secondary shadow-sm shadow-secondary/10 backdrop-blur-sm transition-all hover:border-secondary/60">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary" />
+            </span>
+            <span className="font-semibold tracking-wide">
+              {dict.hero.internshipBadge}
+            </span>
           </div>
 
           <h1 className="font-display text-3xl font-extrabold tracking-tight md:text-5xl lg:text-[54px] lg:leading-[1.12]">
@@ -147,7 +143,7 @@ ${dict.hero.codeStatus}`;
 
           <div className="mt-9 flex items-center gap-5 border-t border-line/60 pt-6">
             <span className="font-mono text-xs text-muted">
-              {data.location} · {dict.hero.internshipShort}
+              {data.location}
             </span>
             <div className="ml-auto flex items-center gap-4">
               <a
@@ -254,13 +250,6 @@ ${dict.hero.codeStatus}`;
                 </CodeLine>
                 <CodeLine num={4}>
                   {"  "}
-                  <span className="text-primary">target</span>
-                  <span className="text-slate-400">:</span>{" "}
-                  <span className="text-tertiary">&quot;Stage 6 mois · Fév. 2027&quot;</span>
-                  <span className="text-slate-400">,</span>
-                </CodeLine>
-                <CodeLine num={5}>
-                  {"  "}
                   <span className="text-primary">stack</span>
                   <span className="text-slate-400">:</span>{" "}
                   <span className="text-slate-200">[</span>
@@ -274,7 +263,7 @@ ${dict.hero.codeStatus}`;
                   <span className="text-slate-200">]</span>
                   <span className="text-slate-400">,</span>
                 </CodeLine>
-                <CodeLine num={6}>
+                <CodeLine num={5}>
                   {"  "}
                   <span className="text-primary">architecture</span>
                   <span className="text-slate-400">:</span>{" "}
@@ -287,19 +276,8 @@ ${dict.hero.codeStatus}`;
                   <span className="text-slate-200">]</span>
                   <span className="text-slate-400">,</span>
                 </CodeLine>
-                <CodeLine num={7}>
-                  {"  "}
-                  <span className="text-primary">openForInterviews</span>
-                  <span className="text-slate-400">:</span>{" "}
-                  <span className="text-tertiary font-semibold">true</span>
-                  <span className="text-slate-400">,</span>
-                </CodeLine>
-                <CodeLine num={8}>
+                <CodeLine num={6}>
                   <span className="text-slate-200">{"};"}</span>
-                </CodeLine>
-                <CodeLine num={9}>
-                  <span className="text-slate-400">{dict.hero.codeStatus}</span>
-                  <span className="animate-caret text-primary">▍</span>
                 </CodeLine>
               </div>
             ) : (
@@ -313,26 +291,22 @@ ${dict.hero.codeStatus}`;
                   <span className="text-secondary font-semibold">{data.name}</span>
                 </CodeLine>
                 <CodeLine num={3}>
-                  <span className="text-slate-400">● Objectif:  </span>
-                  <span className="text-tertiary font-semibold">Stage 6 mois (Février 2027) </span>
-                </CodeLine>
-                <CodeLine num={4}>
                   <span className="text-slate-400">● Mobilité:  </span>
                   <span className="text-slate-200">France (présentiel / hybride) & Remote</span>
                 </CodeLine>
-                <CodeLine num={5}>
+                <CodeLine num={4}>
                   <span className="text-slate-400">● Backend:   </span>
                   <span className="text-slate-200">Java 21 (Spring Boot), PHP (Laravel), Python</span>
                 </CodeLine>
-                <CodeLine num={6}>
+                <CodeLine num={5}>
                   <span className="text-slate-400">● Frontend:  </span>
                   <span className="text-slate-200">React 19, Next.js, Vite, Tailwind v4, Flutter</span>
                 </CodeLine>
-                <CodeLine num={7}>
+                <CodeLine num={6}>
                   <span className="text-slate-400">● Cloud/IaC: </span>
                   <span className="text-slate-200">Docker, PostgreSQL, Terraform, Ansible, CI/CD</span>
                 </CodeLine>
-                <CodeLine num={8}>
+                <CodeLine num={7}>
                   <span className="text-primary">$</span>{" "}
                   <span className="text-slate-300">prêt à échanger</span>
                   <span className="animate-caret text-primary">▍</span>

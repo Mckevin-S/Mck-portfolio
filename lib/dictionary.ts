@@ -18,23 +18,36 @@ const fr = {
   hero: {
     greetingSuffix: "moi c'est",
     internshipBadge: "À la recherche d'un stage de 6 mois dès février 2027",
-    internshipShort: "Stage 6 mois · Fév. 2027",
     viewProjects: "Voir mes projets",
     contact: "Me contacter",
     downloadCv: "Télécharger mon CV",
     codeFocus: ["clean architecture", "haute performance", "scalabilité & cloud"],
-    codeStatus: "// statut : prêt pour stage de 6 mois (Fév. 2027)",
     copyCode: "Copier",
     copiedCode: "Copié !",
   },
   about: {
     label: "À propos",
     title: "Parcours & Vision d'ingénierie",
-    internshipCallout:
-      "Actuellement à la recherche d'un stage de 6 mois à partir de février 2027 au sein d'une équipe d'ingénierie logicielle stimulante.",
+    approachTitle: "Ma façon d'aborder l'ingénierie",
+    principlesTitle: "Mes principes de conception",
+    scopeLabel: "Du concept au déploiement",
+    scopeText: "Relier architecture logicielle, développement et Cloud pour livrer des solutions complètes.",
+    principles: [
+      {
+        title: "Architecture claire",
+        text: "Construire des systèmes robustes, lisibles et capables d'évoluer.",
+      },
+      {
+        title: "Expérience soignée",
+        text: "Penser autant à l'accessibilité qu'à la fluidité d'utilisation.",
+      },
+      {
+        title: "Fiabilité durable",
+        text: "Automatiser et concevoir pour faciliter la maintenance dans le temps.",
+      },
+    ],
     extra:
       "Convaincu que l'excellence technique est un levier direct de valeur produit, j'accorde une attention méticuleuse à la robustesse du backend, à la fluidité de l'interface et à l'automatisation des déploiements. Mon objectif : créer des logiciels résilients, maintenables et évolutifs.",
-    techStackLabel: "Technologies & Écosystème",
   },
   skills: {
     label: "Compétences",
@@ -43,6 +56,7 @@ const fr = {
   experience: {
     label: "Parcours",
     title: "Expérience professionnelle",
+    itemLabel: "Expérience",
   },
   projects: {
     label: "Projets",
@@ -62,8 +76,6 @@ const fr = {
     label: "Contact",
     title: "Travaillons ensemble",
     heading: "Une opportunité ou un projet ? Parlons-en.",
-    internshipNotice:
-      "Disponible pour un stage de 6 mois à partir de février 2027 (présentiel, hybride ou full-remote).",
     text: "Que ce soit pour une proposition de stage, la conception d'un produit ambitieux ou un simple échange technique, ma boîte de réception est toujours ouverte. Je réponds généralement sous 24 heures.",
     replyTime: "réponse garantie < 24h",
   },
@@ -113,23 +125,36 @@ const en: typeof fr = {
   hero: {
     greetingSuffix: "I'm",
     internshipBadge: "Seeking a 6-month internship starting February 2027",
-    internshipShort: "6-Month Internship · Feb 2027",
     viewProjects: "View Projects",
     contact: "Get in Touch",
     downloadCv: "Download CV",
     codeFocus: ["clean architecture", "high performance", "scalability & cloud"],
-    codeStatus: "// status: open for 6-month internship (Feb 2027)",
     copyCode: "Copy",
     copiedCode: "Copied!",
   },
   about: {
     label: "About",
     title: "Engineering Background & Vision",
-    internshipCallout:
-      "Currently seeking a 6-month software engineering internship starting February 2027 within an ambitious, high-impact team.",
+    approachTitle: "How I approach engineering",
+    principlesTitle: "My engineering principles",
+    scopeLabel: "From concept to deployment",
+    scopeText: "Connect software architecture, development, and cloud practices to deliver complete solutions.",
+    principles: [
+      {
+        title: "Clear architecture",
+        text: "Build robust, readable systems designed to evolve.",
+      },
+      {
+        title: "Thoughtful experience",
+        text: "Care about accessibility as much as ease of use.",
+      },
+      {
+        title: "Lasting reliability",
+        text: "Automate and design for long-term maintainability.",
+      },
+    ],
     extra:
       "Driven by the conviction that technical excellence directly accelerates product success, I pay meticulous attention to backend resilience, interface smoothness, and automated deployment pipelines. My goal: building maintainable, high-throughput systems that scale gracefully.",
-    techStackLabel: "Core Technologies & Ecosystem",
   },
   skills: {
     label: "Skills",
@@ -138,6 +163,7 @@ const en: typeof fr = {
   experience: {
     label: "Career",
     title: "Professional Experience",
+    itemLabel: "Experience",
   },
   projects: {
     label: "Projects",
@@ -157,8 +183,6 @@ const en: typeof fr = {
     label: "Contact",
     title: "Let's Connect",
     heading: "An opportunity or project in mind? Let's talk.",
-    internshipNotice:
-      "Open to a 6-month internship starting February 2027 (on-site in France, hybrid, or full-remote).",
     text: "Whether you have an internship opportunity, an ambitious application to build, or a technical conversation to initiate, my inbox is always open. I typically reply within 24 hours.",
     replyTime: "guaranteed reply < 24h",
   },

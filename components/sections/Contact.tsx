@@ -26,14 +26,6 @@ export default function Contact() {
           title={dict.contact.title}
         />
 
-        {/* Internship notice banner */}
-        <div className="mb-10 flex items-start gap-3 rounded-lg border border-green-500/30 bg-green-500/8 px-5 py-4">
-          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-500/20 text-green-400 text-xs font-bold">✦</span>
-          <p className="font-mono text-sm text-green-400 leading-relaxed">
-            {dict.contact.internshipNotice}
-          </p>
-        </div>
-
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div>
             <h3 className="font-display text-2xl font-bold md:text-3xl">

@@ -10,7 +10,6 @@ export type Profile = {
   intro: string;
   bio: string;
   location: string;
-  availability: string;
   email: string;
   stats: Stat[];
 };
